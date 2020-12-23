@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-12-23T01:15:00 EET" name="Default suite" finished-at="2020-12-23T01:16:01 EET" duration-ms="61138">
+    <groups>
+    </groups>
+    <test started-at="2020-12-23T01:15:00 EET" name="Default test" finished-at="2020-12-23T01:16:01 EET" duration-ms="61138">
+      <class name="airbnb_test.TestClass">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:airbnb_test.TestClass@59d016c9]" started-at="2020-12-23T01:15:00 EET" name="setUp" finished-at="2020-12-23T01:15:07 EET" duration-ms="7585" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="beforeEachTest(java.lang.reflect.Method)[pri:0, instance:airbnb_test.TestClass@59d016c9]" started-at="2020-12-23T01:15:07 EET" name="beforeEachTest" finished-at="2020-12-23T01:15:15 EET" duration-ms="7556" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void airbnb_test.TestClass.verifyAppliedFilters()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeEachTest -->
+        <test-method signature="verifyAppliedFilters()[pri:0, instance:airbnb_test.TestClass@59d016c9]" started-at="2020-12-23T01:15:15 EET" name="verifyAppliedFilters" finished-at="2020-12-23T01:15:18 EET" duration-ms="3273" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAppliedFilters -->
+        <test-method is-config="true" signature="afterEachTest(org.testng.ITestResult)[pri:0, instance:airbnb_test.TestClass@59d016c9]" started-at="2020-12-23T01:15:18 EET" name="afterEachTest" finished-at="2020-12-23T01:15:18 EET" duration-ms="17" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyAppliedFilters status=SUCCESS method=TestClass.verifyAppliedFilters()[pri:0, instance:airbnb_test.TestClass@59d016c9] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachTest -->
+        <test-method is-config="true" signature="beforeEachTest(java.lang.reflect.Method)[pri:0, instance:airbnb_test.TestClass@59d016c9]" started-at="2020-12-23T01:15:18 EET" name="beforeEachTest" finished-at="2020-12-23T01:15:22 EET" duration-ms="4059" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void airbnb_test.TestClass.verifyResultsMatchExtraFilters() throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeEachTest -->
+        <test-method signature="verifyResultsMatchExtraFilters()[pri:1, instance:airbnb_test.TestClass@59d016c9]" started-at="2020-12-23T01:15:22 EET" name="verifyResultsMatchExtraFilters" finished-at="2020-12-23T01:15:46 EET" duration-ms="24159" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyResultsMatchExtraFilters -->
+        <test-method is-config="true" signature="afterEachTest(org.testng.ITestResult)[pri:0, instance:airbnb_test.TestClass@59d016c9]" started-at="2020-12-23T01:15:46 EET" name="afterEachTest" finished-at="2020-12-23T01:15:47 EET" duration-ms="228" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyResultsMatchExtraFilters status=SUCCESS method=TestClass.verifyResultsMatchExtraFilters()[pri:1, instance:airbnb_test.TestClass@59d016c9] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachTest -->
+        <test-method is-config="true" signature="beforeEachTest(java.lang.reflect.Method)[pri:0, instance:airbnb_test.TestClass@59d016c9]" started-at="2020-12-23T01:15:47 EET" name="beforeEachTest" finished-at="2020-12-23T01:15:51 EET" duration-ms="4256" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void airbnb_test.TestClass.verifyPropertyDisplayedOnMap()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeEachTest -->
+        <test-method signature="verifyPropertyDisplayedOnMap()[pri:2, instance:airbnb_test.TestClass@59d016c9]" started-at="2020-12-23T01:15:51 EET" name="verifyPropertyDisplayedOnMap" finished-at="2020-12-23T01:15:59 EET" duration-ms="8075" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPropertyDisplayedOnMap -->
+        <test-method is-config="true" signature="afterEachTest(org.testng.ITestResult)[pri:0, instance:airbnb_test.TestClass@59d016c9]" started-at="2020-12-23T01:15:59 EET" name="afterEachTest" finished-at="2020-12-23T01:15:59 EET" duration-ms="22" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyPropertyDisplayedOnMap status=SUCCESS method=TestClass.verifyPropertyDisplayedOnMap()[pri:2, instance:airbnb_test.TestClass@59d016c9] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:airbnb_test.TestClass@59d016c9]" started-at="2020-12-23T01:15:59 EET" name="tearDown" finished-at="2020-12-23T01:16:01 EET" duration-ms="1840" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- airbnb_test.TestClass -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
