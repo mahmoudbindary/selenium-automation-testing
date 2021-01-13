@@ -9,7 +9,7 @@
           <include name="afterEachTest"/>
           <include name="beforeEachTest"/>
           <include name="tearDown"/>
-          <include name="verifyPropertyDisplayedOnMap"/>
+          <include name="verifyPropertyWithLowestPrice"/>
         </methods>
       </class> <!-- airbnb_test.TestClass -->
     </classes>

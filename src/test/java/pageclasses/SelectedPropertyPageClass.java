@@ -19,6 +19,15 @@ public class SelectedPropertyPageClass {
 	@FindBy(xpath = "//div[@data-plugin-in-point-id='AMENITIES_DEFAULT']/div[2]/div/div/div[1]")
 	List<WebElement> allAvailableAmenities;
 
+	@FindBy(xpath = "//h1[@class='_14i3z6h']")
+	WebElement selectedPropertyName;
+
+	@FindBy(xpath = "//span[@class='_1jpdmc0']")
+	WebElement selectedPropertyRating;
+
+	@FindBy(xpath = "(//span[@class='_pgfqnw'])[2]")
+	WebElement selectedPropertyPrice;
+
 	public SelectedPropertyPageClass(WebDriver driver, ExtentTest test) {
 		this.driver = driver;
 		this.test = test;
@@ -44,6 +53,30 @@ public class SelectedPropertyPageClass {
 			test.log(LogStatus.PASS, description + "PASSED");
 		} else {
 			test.log(LogStatus.FAIL, description + "FAILED");
+		}
+	}
+
+	public boolean isNameSame(String name) {
+		if (selectedPropertyName.getText().equals(name)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean isPriceSame(String price) {
+		if (selectedPropertyPrice.getText().equals(price)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean isReviewSame(String review) {
+		if (selectedPropertyRating.getText().equals(review)) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 }

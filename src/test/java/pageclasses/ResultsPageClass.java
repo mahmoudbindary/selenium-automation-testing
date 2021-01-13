@@ -70,6 +70,9 @@ public class ResultsPageClass {
 	@FindBy(xpath = "//div[@class='_ls0e43']//span[@class='_1p7iugi']")
 	List<WebElement> allPropertiesPrice;
 
+	@FindBy(xpath = "//div[@class='_ls0e43']//span[@class='_olc9rf0']")
+	List<WebElement> allPropertiesPriceAfterDiscount;
+
 	@FindBy(xpath = "//div[@class='_bwngwx']//button[@data-testid='close']")
 	List<WebElement> btnCloseUnwantedSpansOnMap;
 
@@ -205,6 +208,89 @@ public class ResultsPageClass {
 		wait.until(ExpectedConditions.visibilityOfAllElements(allPropertyLinks));
 		action.moveToElement(allPropertyLinks.get(0)).build().perform();
 		test.log(LogStatus.INFO, "Mouse hover over first property");
+	}
+
+	public void hoverOverPropertyWithLowestPrice() {
+		wait.until(ExpectedConditions.visibilityOfAllElements(allPropertyLinks));
+		WebElement propertyWithLowestPrice = findPropertyWithLowestPrice();
+		action.moveToElement(propertyWithLowestPrice).build().perform();
+		test.log(LogStatus.INFO, "Mouse hover over property with lowest price");
+		// Just for presentation purposes
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public String getLowestPricePropertyReview() {
+		return allPropertiesRatings.get(getIndexOfPropertyWithLowestPrice()).toString();
+	}
+
+	public String getLowestPricePropertyName() {
+		return allPropertiesNames.get(getIndexOfPropertyWithLowestPrice()).getText();
+	}
+
+	public String getLowestPricePropertyPrice() {
+		return allPropertiesPrice.get(getIndexOfPropertyWithLowestPrice()).getText();
+	}
+
+	public void clickOnPropertyWithLowestOnMap() {
+		if (btnCloseUnwantedSpansOnMap.size() != 0) {
+			btnCloseUnwantedSpansOnMap.get(0).click();
+		}
+		findPropertyWithLowestPriceOnMap().click();
+		test.log(LogStatus.INFO, "Property with lowest price on map is clicked");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void openPropertyWithLowestFromMap() {
+		propertyNameOnMap.click();
+		test.log(LogStatus.INFO, "Property with lowest price is opened");
+	}
+
+	private WebElement findPropertyWithLowestPrice() {
+		int lowestPrice = Integer.parseInt(allPropertiesPriceAfterDiscount.get(0).getText().substring(1));
+		int indexOfPropertyWithLowestPrice = 0;
+		for (int i = 1; i < allPropertiesPriceAfterDiscount.size(); i++) {
+			int currentPropertyPrice = Integer.parseInt(allPropertiesPriceAfterDiscount.get(i).getText().substring(1));
+			if (currentPropertyPrice < lowestPrice) {
+				lowestPrice = currentPropertyPrice;
+				indexOfPropertyWithLowestPrice = i;
+			}
+		}
+		test.log(LogStatus.INFO, "Lowest price is: " + lowestPrice);
+		return allPropertyLinks.get(indexOfPropertyWithLowestPrice);
+	}
+
+	private int getIndexOfPropertyWithLowestPrice() {
+		int lowestPrice = Integer.parseInt(allPropertiesPriceAfterDiscount.get(0).getText().substring(1));
+		int indexOfPropertyWithLowestPrice = 0;
+		for (int i = 1; i < allPropertiesPriceAfterDiscount.size(); i++) {
+			int currentPropertyPrice = Integer.parseInt(allPropertiesPriceAfterDiscount.get(i).getText().substring(1));
+			if (currentPropertyPrice < lowestPrice) {
+				lowestPrice = currentPropertyPrice;
+				indexOfPropertyWithLowestPrice = i;
+			}
+		}
+		return indexOfPropertyWithLowestPrice;
+	}
+
+	private WebElement findPropertyWithLowestPriceOnMap() {
+		String nameOfPropertyWithLowestPriceOnLink = allPropertiesNames.get(getIndexOfPropertyWithLowestPrice())
+				.getText().trim();
+		for (int i = 0; i < allPropertiesOnMap.size(); i++) {
+			String nameOfPropertyOnLink = allPropertiesOnMap.get(i).getAttribute("aria-label");
+			nameOfPropertyOnLink = nameOfPropertyOnLink.split("\\$")[0].trim();
+			if (nameOfPropertyWithLowestPriceOnLink.equals(nameOfPropertyOnLink)) {
+				return allPropertiesOnMap.get(i);
+			}
+		}
+		return null;
 	}
 
 	public boolean isPropertyDisplayedOnMap() {

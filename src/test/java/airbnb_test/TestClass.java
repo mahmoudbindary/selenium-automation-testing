@@ -52,4 +52,20 @@ public class TestClass extends BaseTestClass {
 		softAssert.assertTrue(resultsPage.isPriceSameOnSearchAndMap());
 		softAssert.assertAll();
 	}
+
+	@Test(priority = 4)
+	public void verifyPropertyWithLowestPrice() {
+		resultsPage = new ResultsPageClass(driver, test);
+		resultsPage.hoverOverPropertyWithLowestPrice();
+		String name = resultsPage.getLowestPricePropertyName();
+		String price = resultsPage.getLowestPricePropertyPrice();
+		String review = resultsPage.getLowestPricePropertyReview();
+		resultsPage.clickOnPropertyWithLowestOnMap();
+		selectedPropertyPage = new SelectedPropertyPageClass(driver, test);
+		softAssert.assertTrue(selectedPropertyPage.isNameSame(name));
+		softAssert.assertTrue(selectedPropertyPage.isReviewSame(review));
+		softAssert.assertTrue(selectedPropertyPage.isPriceSame(price));
+		softAssert.assertAll();
+	}
+
 }
