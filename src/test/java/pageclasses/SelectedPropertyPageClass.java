@@ -16,7 +16,7 @@ public class SelectedPropertyPageClass {
 	ExtentTest test;
 	Actions action;
 
-	@FindBy(xpath = "//div[@class='_19xnuo97']/div/div[1]")
+	@FindBy(xpath = "//div[@data-plugin-in-point-id='AMENITIES_DEFAULT']/div[2]/div/div/div[1]")
 	List<WebElement> allAvailableAmenities;
 
 	public SelectedPropertyPageClass(WebDriver driver, ExtentTest test) {
