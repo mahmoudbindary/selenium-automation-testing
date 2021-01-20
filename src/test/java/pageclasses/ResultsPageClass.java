@@ -224,7 +224,7 @@ public class ResultsPageClass {
 	}
 
 	public String getLowestPricePropertyReview() {
-		return allPropertiesRatings.get(getIndexOfPropertyWithLowestPrice()).toString();
+		return allPropertiesRatings.get(getIndexOfPropertyWithLowestPrice()).getText();
 	}
 
 	public String getLowestPricePropertyName() {
