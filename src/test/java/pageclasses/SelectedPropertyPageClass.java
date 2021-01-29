@@ -19,13 +19,10 @@ public class SelectedPropertyPageClass {
 	@FindBy(xpath = "//div[@data-plugin-in-point-id='AMENITIES_DEFAULT']/div[2]/div/div/div[1]")
 	List<WebElement> allAvailableAmenities;
 
-	@FindBy(xpath = "//h1[@class='_14i3z6h']")
+	@FindBy(xpath = "//div[@data-section-id='TITLE_DEFAULT']//h1")
 	WebElement selectedPropertyName;
 
-	@FindBy(xpath = "//span[@class='_1jpdmc0']")
-	WebElement selectedPropertyRating;
-
-	@FindBy(xpath = "(//span[@class='_pgfqnw'])[2]")
+	@FindBy(xpath = "(//div[contains(@data-testid,'book')]//span[contains(text(),'/ night')]/parent::span/span[1])[2]")
 	WebElement selectedPropertyPrice;
 
 	public SelectedPropertyPageClass(WebDriver driver, ExtentTest test) {
@@ -40,12 +37,32 @@ public class SelectedPropertyPageClass {
 		for (int i = 0; i < allAvailableAmenities.size(); i++) {
 			if (allAvailableAmenities.get(i).getText().equalsIgnoreCase("Pool")) {
 				// Only used for presentation purpose
-				// action.moveToElement(allAvailableAmenities.get(i)).build().perform();
+				action.moveToElement(allAvailableAmenities.get(i)).build().perform();
+				sleep(0.2);
 				poolDisplayed = true;
 			}
 		}
 		logCheckStatus(poolDisplayed, "Check pool is diplayed on amenities popup: ");
 		return poolDisplayed;
+	}
+
+	public boolean isNameCorrectOnPropertyPage(String name) {
+		boolean nameCorrectOnPropertyPage = false;
+		if (selectedPropertyName.getText().equals(name)) {
+			nameCorrectOnPropertyPage = true;
+		}
+		logCheckStatus(nameCorrectOnPropertyPage, "Check Name is correct on property page: ");
+		return nameCorrectOnPropertyPage;
+	}
+
+	public boolean isPriceCorrectOnPropertyPage(String price) {
+		boolean priceCorrectOnPropertyPage = false;
+		int priceOnSelectedPage = Integer.parseInt(selectedPropertyPrice.getText().substring(1));
+		if (priceOnSelectedPage - 5 <= Integer.parseInt(price) && Integer.parseInt(price) <= priceOnSelectedPage + 5) {
+			priceCorrectOnPropertyPage = true;
+		}
+		logCheckStatus(priceCorrectOnPropertyPage, "Check Price is correct on property page: ");
+		return priceCorrectOnPropertyPage;
 	}
 
 	private void logCheckStatus(boolean pass, String description) {
@@ -56,27 +73,12 @@ public class SelectedPropertyPageClass {
 		}
 	}
 
-	public boolean isNameSame(String name) {
-		if (selectedPropertyName.getText().equals(name)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public boolean isPriceSame(String price) {
-		if (selectedPropertyPrice.getText().equals(price)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public boolean isReviewSame(String review) {
-		if (selectedPropertyRating.getText().equals(review)) {
-			return true;
-		} else {
-			return false;
+	public void sleep(double timeInSeconds) {
+		try {
+			int timeInMilliseconds = (int) (timeInSeconds * 1000);
+			Thread.sleep(timeInMilliseconds);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 }

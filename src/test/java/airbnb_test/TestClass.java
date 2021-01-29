@@ -33,7 +33,7 @@ public class TestClass extends BaseTestClass {
 		resultsPage.clickOnShowStaysButton();
 		softAssert.assertTrue(resultsPage.isNumberOfBedroomsOnFirstPageCorrect(getNumberOfBedrooms()));
 		resultsPage.openFirstPropertyDetails();
-		resultsPage.switchToSelectedPropertyPage();
+		resultsPage.switchToFirstPropertyPage();
 		selectedPropertyPage = new SelectedPropertyPageClass(driver, test);
 		softAssert.assertTrue(selectedPropertyPage.isPoolDisplayed());
 		softAssert.assertAll();
@@ -46,25 +46,24 @@ public class TestClass extends BaseTestClass {
 		softAssert.assertTrue(resultsPage.isPropertyDisplayedOnMap());
 		softAssert.assertTrue(resultsPage.isPropertyColorChangedOnMap());
 		resultsPage.clickOnFirstPropertyOnMap();
-		softAssert.assertTrue(resultsPage.isReviewSameOnSearchAndMap());
 		softAssert.assertTrue(resultsPage.areTypeAndCitySameOnSearchAndMap());
 		softAssert.assertTrue(resultsPage.isNameSameOnSearchAndMap());
-		softAssert.assertTrue(resultsPage.isPriceSameOnSearchAndMap());
+//		softAssert.assertTrue(resultsPage.isPriceSameOnSearchAndMap());
 		softAssert.assertAll();
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 3)
 	public void verifyPropertyWithLowestPrice() {
 		resultsPage = new ResultsPageClass(driver, test);
 		resultsPage.hoverOverPropertyWithLowestPrice();
 		String name = resultsPage.getLowestPricePropertyName();
 		String price = resultsPage.getLowestPricePropertyPrice();
-		String review = resultsPage.getLowestPricePropertyReview();
-		resultsPage.clickOnPropertyWithLowestOnMap();
+		resultsPage.clickOnPropertyWithLowestPriceOnMap();
+		resultsPage.openLowestPropertyDetailsFromMap();
+		resultsPage.switchToPropertyWithLowestPricePage();
 		selectedPropertyPage = new SelectedPropertyPageClass(driver, test);
-		softAssert.assertTrue(selectedPropertyPage.isNameSame(name));
-		softAssert.assertTrue(selectedPropertyPage.isReviewSame(review));
-		softAssert.assertTrue(selectedPropertyPage.isPriceSame(price));
+		softAssert.assertTrue(selectedPropertyPage.isNameCorrectOnPropertyPage(name));
+		softAssert.assertTrue(selectedPropertyPage.isPriceCorrectOnPropertyPage(price));
 		softAssert.assertAll();
 	}
 

@@ -66,6 +66,7 @@ public class BaseTestClass {
 		test = report.startTest(method.getName());
 		test.log(LogStatus.INFO, "Test Case Started");
 		driver.get(url);
+		sleep(1);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		originalWindowHandle = driver.getWindowHandle();
 		softAssert = new SoftAssert();
@@ -179,6 +180,15 @@ public class BaseTestClass {
 		}
 		String[] dates = { checkInDate, checkOutDate };
 		return dates;
+	}
+
+	public void sleep(double timeInSeconds) {
+		try {
+			int timeInMilliseconds = (int) (timeInSeconds * 1000);
+			Thread.sleep(timeInMilliseconds);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
