@@ -7,12 +7,9 @@
         <methods>
           <include name="setUp"/>
           <include name="afterEachTest"/>
-          <include name="verifyResultsMatchExtraFilters"/>
           <include name="beforeEachTest"/>
           <include name="tearDown"/>
           <include name="verifyPropertyDisplayedOnMap"/>
-          <include name="verifyPropertyWithLowestPrice"/>
-          <include name="verifyAppliedFilters"/>
         </methods>
       </class> <!-- airbnb_test.TestClass -->
     </classes>

@@ -48,7 +48,7 @@ public class TestClass extends BaseTestClass {
 		resultsPage.clickOnFirstPropertyOnMap();
 		softAssert.assertTrue(resultsPage.areTypeAndCitySameOnSearchAndMap());
 		softAssert.assertTrue(resultsPage.isNameSameOnSearchAndMap());
-//		softAssert.assertTrue(resultsPage.isPriceSameOnSearchAndMap());
+		softAssert.assertTrue(resultsPage.isPriceSameOnSearchAndMap());
 		softAssert.assertAll();
 	}
 
