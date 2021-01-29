@@ -1,6 +1,6 @@
 # selenium-automation-testing
 
-This is a Selenium testing framework for OLX task using Java and TestNG
+This is a Selenium testing framework using Java and TestNG
 
 The goal is to test Airbnb website for search and filter features
 
