@@ -1,17 +1,21 @@
-# selenium-automation-testing
+# Selenium Automation Framework
 
-This is a Selenium testing framework using Java and TestNG
+A Selenium with Java project to create automation test cases for complicated search and filter scenarios on [Airbnb](https://www.airbnb.com/) website then generate test reports after each run and screen shots if any failure happens.
 
-The goal is to test Airbnb website for real time search and filter scenarios
+### Used Tools
 
-Maven is used to build the project
+* [Maven](https://maven.apache.org/) is used to build the project
+* [Webdrivermanager](https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager) depency is added to handle the browsers without using any local jars
+* [Extentreport](https://mvnrepository.com/artifact/com.relevantcodes/extentreports) depency is added for logging and reporting purposes 
 
-Webdrivermanager depency is added to handle the browsers without using any local jars
+## Running the tests
 
-Extentreport depency is added for log and reporting purposes 
+* To run the script just import the project in Eclipse and run test cases from TestClass.java
 
-To run the script just import the project in Eclipse and run test cases from TestClass.java
+## Features
+* Test report will be generated after each run in the project's dircetory with the name TestReport.html
+* Screenshot will be captured if any failure happens and added to {Project directory}/screenshots and then will be embedded into the generated test report
 
-NOTE: with each run of the script, a test report is generated in the project's dircetory with the name TestReport.html
+## Authors
 
-If there is a failure in any test case, a screenshot will be captured and added to {Project directory}/screenshots and then be embedded into the generated test report
+* **Mahmoud Bindary**  (https://github.com/mahmoudbindary)
